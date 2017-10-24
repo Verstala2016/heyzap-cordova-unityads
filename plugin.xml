@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="heyzap-cordova-unityads" version="1.2.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <name>Heyzap Cordova UnityAds</name>
+  <description>UnityAds Cordova plugin for the Heyzap Cordova Plugin</description>
+  <author>Heyzap Inc.</author>
+  <license>Heyzap</license>
+  <keywords>cordova,heyzap,phonegap,sdk,ad,mobile,mediation,unityads</keywords>
+
+  <engines>
+    <engine name="cordova-android" version=">=4.0.0" />
+    <engine name="cordova-ios" version=">=3.8.0" />
+  </engines>
+
+  <!-- iOS -->
+  <platform name="ios">
+    
+    <!-- Hooks -->
+    <hook type="before_plugin_install" src="hooks/before_plugin_install/000_create_symlinks.js" />
+    <!-- / Hooks -->
+    
+    <!-- UnityAds SDK -->
+    <framework src="src/ios/UnityAds.framework" custom="true" compiler-flags="-fmodules" />
+    <!-- / UnityAds SDK -->
+
+    <!-- External Frameworks -->
+    <framework src="AdSupport.framework" />
+    <framework src="MediaPlayer.framework" />
+    <framework src="StoreKit.framework" />
+    <framework src="SystemConfiguration.framework" />
+    <framework src="CoreTelephony.framework" />
+    <!-- / External Frameworks -->
+
+  </platform>
+  <!-- / iOS -->
+
+  <!-- Android -->
+  <platform name="android">
+
+    <framework src="src/android/unity-ads.gradle" custom="true" type="gradleReference" />
+
+    <!-- UnityAds SDK -->
+    <source-file src="src/android/unity-ads.aar" target-dir="libs" />
+    <!-- / UnityAds SDK -->
+
+  </platform>
+  <!-- / Android -->
+
+</plugin>
